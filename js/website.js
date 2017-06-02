@@ -1,13 +1,17 @@
 
     app.config(function ($routeProvider) {
         $routeProvider.
-            when('/first', {
+        when('/first', {
             templateUrl: 'partials/first.html',
             controller : "firstCtrl"
         }).
-            when('/2nd', {
+        when('/2nd', {
             templateUrl: 'partials/2nd.html',
             controller : "2ndCtrl"
+        }).
+        when('/table', {
+            templateUrl: 'partials/table.html',
+            controller : "DataCtrl"
         }).
             otherwise({redirectTo: '/about'});
     })
@@ -19,6 +23,29 @@
     });
     app.controller("2ndCtrl", function ($scope) {
         $scope.msg = "I am 2nd page";
+    });
+    app.controller("DataCtrl", function ($scope) {
+        $scope.empdata =[
+            {
+                "id" : "001",
+                "name" : "Max Joe",
+                "email" : "Omguddu100@gmail.com",
+                "phone" : "9738626261",
+                "Address" : "Bihar",
+            },{
+                "id" : "002",
+                "name" : "Guddu Kumar",
+                "email" : "Omguddu99@gmail.com",
+                "phone" : "9738626262",
+                "Address" : "Karnatka",
+            },{
+                "id" : "003",
+                "name" : "Manish",
+                "email" : "MAnish@gmail.com",
+                "phone" : "9738623341",
+                "Address" : "Surat",
+            }
+        ];
     });
 
     app.controller('myController', function ($scope) {
@@ -58,7 +85,7 @@
             }]
         });
     });
-   app.controller('myController2',function ($scope) {
+    app.controller('myController2',function ($scope) {
        Highcharts.chart('container2', {
 
     chart: {
@@ -114,4 +141,4 @@
     }]
 });
 
-   });
+    });
